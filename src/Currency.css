@@ -1,0 +1,11 @@
+.currency-selector select {
+    background-color: lightgreen; /* Change background color */
+    color: black; /* Change text color */
+    border: 1px solid darkgreen; /* Change border color */
+    border-radius: 5px; /* Add border-radius */
+    padding: 5px; /* Add padding */
+}
+
+.currency-selector select:hover {
+    background-color: lightblue; /* Change background color on hover */
+}
