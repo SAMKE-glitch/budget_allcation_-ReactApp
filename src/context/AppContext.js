@@ -57,6 +57,17 @@ export const AppReducer = (state, action) => {
                 ...state,
                 budget
             };
+        case 'DECREASE_EXPENSE_BY_TEN': // New case for decreasing expense by 10
+            const decreased_expenses = state.expenses.map((currentExp) => {
+                if (currentExp.id === action.payload.id) {
+                    currentExp.cost -= 10; // Decreasing expense by 10
+                }
+                return currentExp;
+            });
+            return {
+                ...state,
+                expenses: [...decreased_expenses],
+            };
         case 'SET_BUDGET':
             action.type = "DONE";
             state.budget = action.payload;

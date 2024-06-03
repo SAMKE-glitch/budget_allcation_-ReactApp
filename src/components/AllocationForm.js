@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react'; // Removed useEffect import
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch, remaining } = useContext(AppContext);
+    const { dispatch, remaining, currency } = useContext(AppContext); // Accessing currency from context
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -10,7 +10,7 @@ const AllocationForm = (props) => {
 
     const submitEvent = () => {
         if (cost > remaining) {
-            alert("The value cannot exceed remaining funds £" + remaining);
+            alert("The value cannot exceed remaining funds " + currency + remaining);
             setCost("");
             return;
         }
@@ -66,7 +66,7 @@ const AllocationForm = (props) => {
                     </select>
 
                     <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
-                        <span className="input-group-text">£</span>
+                        <span className="input-group-text">{currency}</span>
                     </div>
                     <input
                         required='required'
